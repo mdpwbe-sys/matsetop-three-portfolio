@@ -1,78 +1,108 @@
-# Matsetop — Three.js Portfolio
+# Matsetop — 3D Systems & Automation Portfolio
 
-Starter portfolio 3D construit avec :
+[![Deploy to GitHub Pages](https://github.com/matsetop/matsetop-three-portfolio/actions/workflows/deploy.yml/badge.svg)](https://matsetop.be)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Built with Three.js](https://img.shields.io/badge/Built%20with-Three.js-000000.svg?logo=three.dot.js)](https://threejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.x-646CFF.svg?logo=vite)](https://vitejs.dev/)
 
-- Vite
-- TypeScript
-- Three.js natif
-- HTML/CSS sans framework UI
+> Portfolio interactif 3D dédié aux services et réalisations en **Support IT, Infrastructure Systèmes & Réseaux, Automatisation et Outillage sur mesure**.
 
-## Démarrage
+🌐 **Production live** : [https://matsetop.be](https://matsetop.be)
 
+---
+
+## ⚡ Stack Technique
+
+- **Moteur 3D** : Three.js (r179) natif (sans surcouche lourde)
+- **Bundler & Dev Server** : Vite 7 + TypeScript 5
+- **Design & UI** : HTML5 sémantique, CSS Modern Glassmorphism, Responsive Mobile & Desktop
+- **Déploiement** : GitHub Actions (CI/CD automatisé) ➔ GitHub Pages avec domaine personnalisé `matsetop.be`
+
+---
+
+## 🎨 Caractéristiques 3D
+
+1. **Brand Core (Logo Header 3D interactif)** :
+   - Cœur icosaédrique saphir avec étincelle interne.
+   - Cage icosaédrique extérieure en acier inox brossé / gunmetal sombre.
+   - Anneaux gyroscopiques contrarotatifs (cyan & émeraude).
+   - Vortex de 85 particules quantiques en dérive orbitale lente.
+   - Réaction au survol et à l'interaction souris.
+
+2. **Scène d'Arrière-Plan (Topologie Réseau & Infrastructure IT)** :
+   - Nœuds de calcul et arêtes géodésiques d'interconnexion.
+   - Paquets de données circulant en temps réel le long des routes réseau.
+   - Anneaux de télémétrie orbitaux.
+   - Parallaxe fluide avec inertie souris et réactivité au défilement (scroll).
+
+---
+
+## 🚀 Démarrage Rapide
+
+### Prérequis
+- Node.js (v18+)
+- npm ou pnpm
+
+### Installation
 ```bash
+# Cloner le dépôt
+git clone https://github.com/YOUR_USERNAME/matsetop-three-portfolio.git
+cd matsetop-three-portfolio
+
+# Installer les dépendances
 npm install
+
+# Démarrer le serveur de développement local
 npm run dev
 ```
 
-Puis ouvre :
+L'application sera accessible sur `http://localhost:5173`.
 
-```text
-http://localhost:5173
-```
-
-## Build production
-
+### Build pour la Production
 ```bash
 npm run build
 npm run preview
 ```
 
-## Architecture
+---
+
+## 📁 Architecture du Projet
 
 ```text
-src/
-├── data/
-│   └── portfolio.ts
-├── styles/
-│   └── main.css
-├── three/
-│   └── PortfolioScene.ts
-├── ui/
-│   └── mountUI.ts
-└── main.ts
+matsetop-three-portfolio/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # Workflow de déploiement GitHub Pages
+├── public/
+│   └── CNAME                 # Configuration du domaine personnalisé (matsetop.be)
+├── src/
+│   ├── data/
+│   │   └── portfolio.ts      # Données des projets et des services
+│   ├── styles/
+│   │   └── main.css          # Styles dark luxury tech & glassmorphism
+│   ├── three/
+│   │   ├── BrandCore.ts      # Mini-noyau 3D interactif du logo header
+│   │   └── PortfolioScene.ts # Scène 3D d'arrière-plan (topologie & réseau)
+│   ├── ui/
+│   │   └── mountUI.ts        # Rendu sémantique de l'interface utilisateur
+│   └── main.ts               # Point d'entrée & initialisation WebGL
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── LICENSE                   # Licence MIT
+└── README.md
 ```
 
-## Direction artistique actuelle
+---
 
-La scène sert de fond spatial / technique discret :
+## 🔒 Confidentialité & Données Personnelles
 
-- noyau 3D en icosaèdre métallique ;
-- wireframe lumineux ;
-- anneaux orbitaux ;
-- nuage de particules ;
-- grille technique ;
-- parallaxe à la souris ;
-- animation liée au scroll.
+Ce dépôt public contient uniquement le code source du portfolio interactif. Les documents sensibles (CV complet, détails confidentiels d'infrastructures d'entreprises) sont hébergés et protégés séparément sur un portail sécurisé dédié.
 
-Le contenu HTML reste au-dessus de Three.js pour préserver :
+---
 
-- accessibilité ;
-- SEO ;
-- lisibilité ;
-- responsive ;
-- performance.
+## 📄 Licence
 
-## Prochaines étapes recommandées
+Ce projet est sous licence [MIT](LICENSE).
 
-1. Remplacer les projets placeholder par les études de cas définitives.
-2. Ajouter des textures / modèles GLTF uniquement si elles servent réellement l'expérience.
-3. Mettre en place une transition de scène par section.
-4. Ajouter une page `/project/:slug` ou un système de modales détaillées.
-5. Remplacer l'adresse email placeholder.
-6. Ajouter analytics respectueux de la vie privée.
-7. Déployer sur Cloudflare Pages / Netlify / Vercel.
-
-## Philosophie
-
-Le 3D doit augmenter la perception de qualité du portfolio, pas cacher le contenu.
-Le DOM reste la couche principale ; Three.js apporte mouvement, profondeur et identité.
