@@ -120,27 +120,25 @@ export function mountUI(root: HTMLElement) {
       <section id="about" class="section content-section split-section">
         <div>
           <p class="eyebrow">03 / PROFILE</p>
-          <h2>Technicien augmenté.</h2>
+          <h2>Technicien & Ingénierie de Solutions.</h2>
         </div>
 
         <div class="about-copy">
           <p>
-            À l'intersection du support IT, des systèmes/réseaux et du développement.
-            Mon objectif : résoudre rapidement les incidents, comprendre l'origine
-            du problème et créer les outils qui évitent qu'il se répète.
+            À l'intersection du support IT, de l'administration systèmes/réseaux (Homelab WSL2, DNS local home.arpa, microservices)
+            et de l'assistance numérique technique. Mon objectif : résoudre rapidement les incidents, automatiser les flux de travail
+            et concevoir des solutions opérationnelles pérennes.
           </p>
 
           <div class="skills">
-            <span>Windows</span>
-            <span>Microsoft 365</span>
-            <span>Active Directory</span>
-            <span>Linux</span>
-            <span>Networking</span>
-            <span>VMware</span>
-            <span>Python</span>
-            <span>PowerShell</span>
-            <span>Three.js</span>
-            <span>AI / LLM</span>
+            <span>Windows & WSL2</span>
+            <span>Linux & Docker</span>
+            <span>DNS & Networking (home.arpa)</span>
+            <span>GLPI / Helpdesk</span>
+            <span>Active Directory & M365</span>
+            <span>PowerShell & Python</span>
+            <span>Drone & Captation Aérienne</span>
+            <span>Three.js / Web</span>
           </div>
         </div>
       </section>
