@@ -25,7 +25,8 @@ export const projects: Project[] = [
     description:
       "Déploiement et personnalisation intégrale d'un Helpdesk GLPI sur mesure : gestion de parc d'équipements, SLA, formulaires de tickets automatisés et flux d'escalade.",
     stack: ["GLPI", "ITIL", "MariaDB", "PHP", "Linux / Docker"],
-    status: "live"
+    status: "live",
+    url: "https://helpdesk.balboing.com"
   },
   {
     name: "CollabVault & Remote Hub",
@@ -34,7 +35,8 @@ export const projects: Project[] = [
     description:
       "Plateforme privée communautaire intégrant partage de fichiers multimédias chiffrés, gestion de documents et flux collaboratifs en temps réel à faible latence (P2P / WebRTC).",
     stack: ["phpBB / Node.js", "WebSockets", "P2P / WebRTC", "Storage"],
-    status: "live"
+    status: "live",
+    url: "https://forum.balboing.com"
   },
   {
     name: "WSL Multi-Service Homelab",
@@ -71,7 +73,8 @@ export const projects: Project[] = [
     description:
       "Portail de CV sécurisé avec chiffrement côté client et contrôle d'accès sécurisé aux données personnelles.",
     stack: ["Web Crypto", "AES-GCM", "PBKDF2", "Frontend"],
-    status: "prototype"
+    status: "live",
+    url: "https://cv-mdp.netlify.app"
   },
   {
     name: "Jarvis / AI Lab",
