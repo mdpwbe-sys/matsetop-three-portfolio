@@ -63,6 +63,24 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "SEO"],
     status: "live",
     url: "https://rgpd.click"
+  },
+  {
+    name: "Secure CV Hub",
+    slug: "secure-cv-hub",
+    category: "Security & Privacy",
+    description:
+      "Portail de CV sécurisé avec chiffrement côté client et contrôle d'accès sécurisé aux données personnelles.",
+    stack: ["Web Crypto", "AES-GCM", "PBKDF2", "Frontend"],
+    status: "prototype"
+  },
+  {
+    name: "Jarvis / AI Lab",
+    slug: "jarvis-ai-lab",
+    category: "AI & Automation",
+    description:
+      "Environnement expérimental d'agents IA, modèles locaux, automatisation système et passerelles de contrôle distant.",
+    stack: ["Python", "LLM", "Ollama", "Automation"],
+    status: "lab"
   }
 ];
 
