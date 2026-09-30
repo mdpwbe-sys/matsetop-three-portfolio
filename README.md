@@ -1,13 +1,13 @@
 # Matsetop — 3D Systems & Automation Portfolio
 
-[![Deploy to GitHub Pages](https://github.com/matsetop/matsetop-three-portfolio/actions/workflows/deploy.yml/badge.svg)](https://matsetop.be)
+[![Deploy to GitHub Pages](https://github.com/mdpwbe-sys/matsetop-three-portfolio/actions/workflows/deploy.yml/badge.svg)](https://m.atsetop.be)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with Three.js](https://img.shields.io/badge/Built%20with-Three.js-000000.svg?logo=three.dot.js)](https://threejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.x-646CFF.svg?logo=vite)](https://vitejs.dev/)
 
 > Portfolio interactif 3D dédié aux services et réalisations en **Support IT, Infrastructure Systèmes & Réseaux, Automatisation et Outillage sur mesure**.
 
-🌐 **Production live** : [https://matsetop.be](https://matsetop.be)
+🌐 **Production live** : [https://m.atsetop.be](https://m.atsetop.be)
 
 ---
 
@@ -16,7 +16,7 @@
 - **Moteur 3D** : Three.js (r179) natif (sans surcouche lourde)
 - **Bundler & Dev Server** : Vite 7 + TypeScript 5
 - **Design & UI** : HTML5 sémantique, CSS Modern Glassmorphism, Responsive Mobile & Desktop
-- **Déploiement** : GitHub Actions (CI/CD automatisé) ➔ GitHub Pages avec domaine personnalisé `matsetop.be`
+- **Déploiement** : GitHub Actions (CI/CD automatisé) ➔ GitHub Pages avec domaine personnalisé `m.atsetop.be`
 
 ---
 
