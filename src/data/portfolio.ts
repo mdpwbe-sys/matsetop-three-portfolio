@@ -16,7 +16,8 @@ export const projects: Project[] = [
     description:
       "Assistance numérique sur le terrain pour la création de devis, observations techniques par drone, captation de contenus et modélisation de plans aériens pour chantiers et expertises.",
     stack: ["Drone Photogrammetry", "GIS", "CAD/Plans", "Data Processing"],
-    status: "live"
+    status: "live",
+    url: "https://atsetop.be"
   },
   {
     name: "GLPI Custom IT Service Desk",
