@@ -118,6 +118,16 @@ export const projects: Project[] = [
       "Studio de personnalisation en ligne de cartes de visite interactives (éditeur HTML5/CSS3/Canvas haute résolution, micro-animations, prévisualisation 3D temps réel) avec service d'impression premium et livraison à domicile.",
     stack: ["HTML5 Canvas", "CSS3 3D / Shaders", "JavaScript", "Vector Export / PDF Print", "E-Commerce"],
     status: "prototype"
+  },
+  {
+    name: "Ultra E-Shop & Analytics Suite",
+    slug: "ultra-eshop",
+    category: "Full-Stack E-Commerce & BI",
+    description:
+      "Plateforme e-commerce responsive complète avec espace d'administration CSM, gestion de stock temps réel, encaissement Stripe et pipelines n8n automatisés pour l'import de métriques vers Power BI.",
+    stack: ["TypeScript", "Stripe API", "n8n Automation", "Power BI", "PostgreSQL / REST"],
+    status: "live",
+    url: "https://morromodscreen.web1337.net"
   }
 ];
 
