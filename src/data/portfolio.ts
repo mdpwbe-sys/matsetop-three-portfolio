@@ -89,6 +89,26 @@ export const projects: Project[] = [
     stack: ["Python", "Ollama", "Electron", "React Native", "KVM"],
     status: "live",
     url: "https://github.com/mdpwbe-sys/Jarvis.package"
+  },
+  {
+    name: "DiagToolIT",
+    slug: "diagtoolit",
+    category: "IT Support L3 & Forensics",
+    description:
+      "Suite d'ingénierie système autonome, audit prédictif, scanner CVE (CVSS >= 7.0), télémétrie matérielle et cartographie 3D WebGL pour techniciens N3.",
+    stack: ["PowerShell 7+", "Three.js", "CVE Scanner", "i18n (4 Langues)", "Windows API"],
+    status: "live",
+    url: "https://github.com/mdpwbe-sys/DiagToolIT"
+  },
+  {
+    name: "MMD — Market & Tactical Engine",
+    slug: "mmd-market-engine",
+    category: "Financial Analytics & Spatial Map",
+    description:
+      "Application de trading de marché et cartographie spatiale 3D temps réel : analyse d'ordres multi-comptes, flux de combat zKillboard/R2Z2 et moteur de routage sécurisé.",
+    stack: ["Python 3.14", "SQLite WAL", "ESI OAuth2", "Three.js / 3D Map", "AsyncIO"],
+    status: "live",
+    url: "https://github.com/mdpwbe-sys/mmd-public-trader"
   }
 ];
 
