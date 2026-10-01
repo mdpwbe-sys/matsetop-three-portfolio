@@ -118,15 +118,15 @@ export function mountHomelabPage(root: HTMLElement) {
 +───────────────────────────────────────────────────────────────────────────────────+
 |                           COUCHE DE REVERSE-PROXYING                              |
 |                                                                                   |
-|    [ Traefik / Coolify (Flux Publics) ]            [ Caddy Gateway (Flux Privés) ]|
+|    [ Traefik / Coolify / Cloudflare (Public) ]     [ Caddy Gateway (Flux Privés) ]|
 |                 │                                              │                  |
-|                 ├────────► forum.balboing.com                  ├────────► Vaultwarden / Bitwarden
-|                 ├────────► helpdesk.balboing.com (GLPI)        ├────────► Activepieces Automation
-|                 ├────────► media.balboing.com (Chevereto)      ├────────► GLPI IT Service Desk
-|                 ├────────► n8n.balboing.com                    ├────────► Chevereto & Immich
-|                 └────────► uptime.balboing.com                 ├────────► WebODM & Drone Portal
-|                                                                ├────────► Home Assistant & IoT
-|                                                                └────────► Local AI (Ollama & Codex)
+|                 ├────────► atsetop.be (AeroAssist Vitrine)     ├────────► Vaultwarden / Bitwarden
+|                 ├────────► gallery.atsetop.be (Chevereto Drone)├────────► Activepieces Automation
+|                 ├────────► helpdesk.balboing.com (GLPI)        ├────────► GLPI IT Service Desk
+|                 ├────────► media.balboing.com (Jellyfin)       ├────────► Immich Private AI Photo
+|                 ├────────► forum.balboing.com                  ├────────► WebODM & Drone Portal
+|                 ├────────► n8n.balboing.com                    ├────────► Home Assistant & IoT
+|                 └────────► uptime.balboing.com                 └────────► Local AI (Ollama & Codex)
 +───────────────────────────────────────────────────────────────────────────────────+
 |                           RÉSEAUX DOCKER INTERNES ISOLÉS                          |
 |                                                                                   |
@@ -154,7 +154,7 @@ export function mountHomelabPage(root: HTMLElement) {
                 <h3>Support, Workflows & Domotique</h3>
               </div>
               <ul>
-                <li><strong>GLPI Custom IT Service Desk :</strong> Gestion de parc d'équipements, SLA, inventaire d'actifs et formulaires de tickets personnalisés.</li>
+                <li><strong>GLPI Custom IT Service Desk :</strong> Gestion de parc d'équipements, SLA, inventaire d'actifs et formulaires de tickets personnalisés (<code>helpdesk.balboing.com</code>).</li>
                 <li><strong>Activepieces & n8n.io :</strong> Plateformes d'automatisation sans code et pipelines événementiels pour synchroniser les alertes et orchestrer les données.</li>
                 <li><strong>Home Assistant :</strong> Contrôle domotique centralisé, orchestration de capteurs IoT et télémétrie locale.</li>
                 <li><strong>WebODM & Flight Portal :</strong> Traitement photogrammétrique par drone, modélisation 3D de terrains et carnets de vol numériques (Open DroneLog).</li>
@@ -164,15 +164,15 @@ export function mountHomelabPage(root: HTMLElement) {
 
             <article class="homelab-pillar glass-card">
               <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">Streaming, Gaming & Médias</span>
-                <h3>Divertissement & Rétro-Gaming</h3>
+                <span class="homelab-pillar__tag">Streaming, Gaming & Médias Drone</span>
+                <h3>Divertissement & Galeries Métier</h3>
               </div>
               <ul>
-                <li><strong>Jellyfin :</strong> Serveur de streaming multimédia haute fidélité (films, séries, musique) avec transcodage matériel.</li>
+                <li><strong>Jellyfin :</strong> Serveur de streaming multimédia haute fidélité (films, séries, musique) avec transcodage matériel (<code>media.balboing.com</code>).</li>
+                <li><strong>Chevereto (Drone Media Hub) :</strong> Hébergement de galeries publiques de démonstration et d'espaces clients privés pour les livrables d'inspection drone (<code>gallery.atsetop.be</code>).</li>
                 <li><strong>RomM (Rom Manager) :</strong> Bibliothèque et gestionnaire de ROMs rétro-gaming avec serveur de streaming Webstation dédié.</li>
-                <li><strong>Chevereto & Immich :</strong> Plateformes d'hébergement photo et galerie multimédia avec reconnaissance faciale ML et sauvegarde mobile instantanée.</li>
-                <li><strong>Kavita :</strong> Serveur de lecture numérique et bibliothèque d'e-books / mangas auto-hébergée.</li>
-                <li><strong>MediaMTX :</strong> Passerelle de flux vidéo et flux temps réel RTSP / WebRTC à ultra-faible latence.</li>
+                <li><strong>Immich :</strong> Gestionnaire de photos privé avec reconnaissance faciale ML, indexation sémantique et sauvegarde instantanée.</li>
+                <li><strong>Kavita & MediaMTX :</strong> Bibliothèque de lecture numérique (e-books/mangas) et passerelle de flux vidéo RTSP/WebRTC à ultra-faible latence.</li>
               </ul>
             </article>
 
