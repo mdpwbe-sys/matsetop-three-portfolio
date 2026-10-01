@@ -150,16 +150,29 @@ export function mountHomelabPage(root: HTMLElement) {
           <div class="homelab-pillars-grid">
             <article class="homelab-pillar glass-card">
               <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">ITSM, Médias & Domotique</span>
-                <h3>Gestion, Support & IoT</h3>
+                <span class="homelab-pillar__tag">ITSM, Automatisation & IoT</span>
+                <h3>Support, Workflows & Domotique</h3>
               </div>
               <ul>
-                <li><strong>GLPI Custom IT Service Desk :</strong> Gestion centralisée du parc informatique, inventaire d'équipements, SLA et formulaires de tickets personnalisés.</li>
-                <li><strong>Activepieces & n8n :</strong> Plateformes d'automatisation sans code et pipelines événementiels pour synchroniser les alertes et orchestrer les données.</li>
-                <li><strong>Chevereto & Immich :</strong> Stockage et gestion multimédia chiffrée avec reconnaissance faciale ML et indexation instantanée.</li>
-                <li><strong>WebODM & Flight Portal :</strong> Traitement photogrammétrique par drone, modélisation 3D de terrains et carnets de vol numériques.</li>
+                <li><strong>GLPI Custom IT Service Desk :</strong> Gestion de parc d'équipements, SLA, inventaire d'actifs et formulaires de tickets personnalisés.</li>
+                <li><strong>Activepieces & n8n.io :</strong> Plateformes d'automatisation sans code et pipelines événementiels pour synchroniser les alertes et orchestrer les données.</li>
                 <li><strong>Home Assistant :</strong> Contrôle domotique centralisé, orchestration de capteurs IoT et télémétrie locale.</li>
-                <li><strong>GED & Fichiers :</strong> Paperless-ngx (indexation OCR et classification) et Filebrowser sécurisé.</li>
+                <li><strong>WebODM & Flight Portal :</strong> Traitement photogrammétrique par drone, modélisation 3D de terrains et carnets de vol numériques (Open DroneLog).</li>
+                <li><strong>Vaultwarden :</strong> Gestionnaire de mots de passe et coffre-fort chiffré auto-hébergé avec synchronisation multi-appareils.</li>
+              </ul>
+            </article>
+
+            <article class="homelab-pillar glass-card">
+              <div class="homelab-pillar__header">
+                <span class="homelab-pillar__tag">Streaming, Gaming & Médias</span>
+                <h3>Divertissement & Rétro-Gaming</h3>
+              </div>
+              <ul>
+                <li><strong>Jellyfin :</strong> Serveur de streaming multimédia haute fidélité (films, séries, musique) avec transcodage matériel.</li>
+                <li><strong>RomM (Rom Manager) :</strong> Bibliothèque et gestionnaire de ROMs rétro-gaming avec serveur de streaming Webstation dédié.</li>
+                <li><strong>Chevereto & Immich :</strong> Plateformes d'hébergement photo et galerie multimédia avec reconnaissance faciale ML et sauvegarde mobile instantanée.</li>
+                <li><strong>Kavita :</strong> Serveur de lecture numérique et bibliothèque d'e-books / mangas auto-hébergée.</li>
+                <li><strong>MediaMTX :</strong> Passerelle de flux vidéo et flux temps réel RTSP / WebRTC à ultra-faible latence.</li>
               </ul>
             </article>
 
@@ -170,21 +183,23 @@ export function mountHomelabPage(root: HTMLElement) {
               </div>
               <ul>
                 <li><strong>Ollama & Moteurs LLM Locaux :</strong> Exécution de modèles d'inférence (Qwen, Mistral-Nemo) garantissant 100% de souveraineté sans fuite de données.</li>
-                <li><strong>Open WebUI & ComfyUI :</strong> Interfaces web riches pour le chat, le prompt-engineering multimodal et la génération d'images assistée par GPU.</li>
-                <li><strong>Agents Autonomes & Pipelines :</strong> Passerelle d'agents (OpenClaw, Jarvis, MiroFish) connectée aux API internes et outils système.</li>
+                <li><strong>Open WebUI & Page Assist :</strong> Interfaces web et extensions de navigateur pour le prompt-engineering multimodal et les assistants IA.</li>
+                <li><strong>ComfyUI & Stable Diffusion Control :</strong> Génération et manipulation d'images assistée par GPU avec pipelines de contrôle avancés.</li>
+                <li><strong>Agents Autonomes (OpenClaw, Hermes, MiroFish) :</strong> Passerelles d'agents IA distribuées (Swagger UI / ReDoc) connectées aux outils système.</li>
               </ul>
             </article>
 
             <article class="homelab-pillar glass-card">
               <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">Supervision & Observabilité</span>
-                <h3>Monitoring & Télémétrie</h3>
+                <span class="homelab-pillar__tag">Outils, GED & Supervision</span>
+                <h3>Productivité, Knowledge & Monitoring</h3>
               </div>
               <ul>
-                <li><strong>Uptime Kuma :</strong> 37+ sondes de disponibilité surveillant le parcours utilisateur complet (HTTP, certificats TLS, résolution DNS et TCP).</li>
-                <li><strong>Beszel & Dozzle :</strong> Télémétrie système légère (CPU, RAM, disques, température GPU) et visualisation en direct des logs conteneurs.</li>
-                <li><strong>Technitium DNS :</strong> Serveur DNS récursif gérant la zone d'autorité locale <code>home.arpa</code> avec support DNSSEC.</li>
-                <li><strong>Coolify & Sentinel :</strong> Gestionnaire d'applications et surveillance de l'état des conteneurs.</li>
+                <li><strong>Uptime Kuma & Beszel :</strong> 37+ sondes de disponibilité end-to-end et télémétrie matérielle légère (CPU, RAM, stockage, GPU).</li>
+                <li><strong>Dozzle & Technitium DNS :</strong> Visualisation en direct des logs conteneurs et serveur DNS récursif privé (zone <code>home.arpa</code>).</li>
+                <li><strong>GED & Organisation :</strong> Paperless-ngx (indexation OCR), Filebrowser sécurisé, Obsidian Sync et Excalidraw Whiteboard.</li>
+                <li><strong>Boîte à Outils & Portails :</strong> Homarr Dashboard, CasaOS, IT-Tools, SearXNG (moteur de recherche privé), Linkding et Reactive Resume.</li>
+                <li><strong>Sauvegardes :</strong> Duplicati pour les sauvegardes chiffrées automatiques des volumes de configuration.</li>
               </ul>
             </article>
           </div>
