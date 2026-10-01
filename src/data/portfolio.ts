@@ -101,17 +101,17 @@ export const projects: Project[] = [
     url: "https://github.com/mdpwbe-sys/DiagToolIT"
   },
   {
-    name: "MMD — Market & Tactical Engine",
+    name: "MMD - Market & Tactical Engine",
     slug: "mmd-market-engine",
     category: "Financial Analytics & Spatial Map",
     description:
-      "Application de trading de marché et cartographie spatiale 3D temps réel : analyse d'ordres multi-comptes, flux de combat zKillboard/R2Z2 et moteur de routage sécurisé.",
-    stack: ["Python 3.14", "SQLite WAL", "ESI OAuth2", "Three.js / 3D Map", "AsyncIO"],
+      "Application de trading de marché et cartographie spatiale 3D temps réel pour EVE Online : analyse d'ordres multi-personnages (ESI OAuth2), flux de combat zKillboard/R2Z2 et moteur de routage sécurisé.",
+    stack: ["Python 3.14", "EVE Online ESI", "SQLite WAL", "Three.js / 3D Map", "AsyncIO"],
     status: "live",
     url: "https://github.com/mdpwbe-sys/mmd-public-trader"
   },
   {
-    name: "CardStudio — Cartes de Visite Next-Gen",
+    name: "CardStudio - Cartes de Visite Next-Gen",
     slug: "cardstudio-nextgen",
     category: "Web App & Print-on-Demand",
     description:
