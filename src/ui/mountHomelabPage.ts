@@ -121,10 +121,10 @@ export function mountHomelabPage(root: HTMLElement) {
 |    [ Traefik / Coolify (Flux Publics) ]            [ Caddy Gateway (Flux Privés) ]|
 |                 │                                              │                  |
 |                 ├────────► forum.balboing.com                  ├────────► Vaultwarden / Bitwarden
-|                 ├────────► n8n.balboing.com                    ├────────► Activepieces Automation
-|                 └────────► uptime.balboing.com                 ├────────► GLPI IT Service Desk
-|                                                                ├────────► Chevereto & Immich
-|                                                                ├────────► WebODM & Drone Portal
+|                 ├────────► helpdesk.balboing.com (GLPI)        ├────────► Activepieces Automation
+|                 ├────────► media.balboing.com (Chevereto)      ├────────► GLPI IT Service Desk
+|                 ├────────► n8n.balboing.com                    ├────────► Chevereto & Immich
+|                 └────────► uptime.balboing.com                 ├────────► WebODM & Drone Portal
 |                                                                ├────────► Home Assistant & IoT
 |                                                                └────────► Local AI (Ollama & Codex)
 +───────────────────────────────────────────────────────────────────────────────────+
