@@ -85,9 +85,10 @@ export const projects: Project[] = [
     slug: "jarvis-ai-lab",
     category: "AI & Automation",
     description:
-      "Environnement expérimental d'agents IA, modèles locaux, automatisation système et passerelles de contrôle distant.",
-    stack: ["Python", "LLM", "Ollama", "Automation"],
-    status: "lab"
+      "Suite complète d'assistance IA autonome locale, orchestration d'agents (OpenClaw), contrôle KVM, clients Desktop et Mobile iOS.",
+    stack: ["Python", "Ollama", "Electron", "React Native", "KVM"],
+    status: "live",
+    url: "https://github.com/mdpwbe-sys/Jarvis.package"
   }
 ];
 
