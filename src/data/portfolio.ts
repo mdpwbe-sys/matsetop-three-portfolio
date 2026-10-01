@@ -53,9 +53,10 @@ export const projects: Project[] = [
     slug: "safedrag",
     category: "Windows Utility",
     description:
-      "Utilitaire Windows conçu pour réduire les déplacements accidentels de fichiers et sécuriser les manipulations dans l'Explorateur.",
-    stack: [".NET", "Windows", "Shell", "UX"],
-    status: "prototype"
+      "Utilitaire Windows sécurisé réduisant les déplacements accidentels de fichiers et protégeant les manipulations de glisser-déposer dans l'Explorateur.",
+    stack: [".NET 10", "WPF", "Windows Hook", "C#"],
+    status: "live",
+    url: "https://github.com/mdpwbe-sys/SafeDrag"
   },
   {
     name: "RGPD.click",
