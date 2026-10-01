@@ -170,7 +170,7 @@ export function mountHomelabPage(root: HTMLElement) {
               <ul>
                 <li><strong>Jellyfin :</strong> Serveur de streaming multimédia haute fidélité (films, séries, musique) avec transcodage matériel (<code>media.balboing.com</code>).</li>
                 <li><strong>Chevereto (Drone Media Hub) :</strong> Hébergement de galeries publiques de démonstration et d'espaces clients privés pour les livrables d'inspection drone (<code>gallery.atsetop.be</code>).</li>
-                <li><strong>RomM (Rom Manager) :</strong> Bibliothèque et gestionnaire de ROMs rétro-gaming avec serveur de streaming Webstation dédié.</li>
+                <li><strong>RomM (Rom Manager) :</strong> Bibliothèque et gestionnaire de ROMs rétro-gaming avec serveur de streaming Webstation dédié. Sessions coopératives, multijoueur (MP) et sauvegardes persistantes synchronisées (<code>forum.balboing.com</code>).</li>
                 <li><strong>Immich :</strong> Gestionnaire de photos privé avec reconnaissance faciale ML, indexation sémantique et sauvegarde instantanée.</li>
                 <li><strong>Kavita & MediaMTX :</strong> Bibliothèque de lecture numérique (e-books/mangas) et passerelle de flux vidéo RTSP/WebRTC à ultra-faible latence.</li>
               </ul>
