@@ -6,6 +6,7 @@ export type Project = {
   stack: string[];
   status: "live" | "prototype" | "lab";
   url?: string;
+  internalRoute?: string;
 };
 
 export const projects: Project[] = [
@@ -44,9 +45,10 @@ export const projects: Project[] = [
     slug: "wsl-homelab-infrastructure",
     category: "Infrastructure & Networking",
     description:
-      "Architecture Homelab hybride sous WSL2/Linux : orchestration de microservices open-source, serveur DNS local sécurisé (zone home.arpa), reverse proxy SSL et routage réseau dédié.",
-    stack: ["WSL2", "Docker", "DNS / home.arpa", "Reverse Proxy", "Linux"],
-    status: "lab"
+      "Architecture Homelab hybride sous WSL2/Linux : orchestration de 50+ microservices, passerelle de reverse proxying SSL, zone DNS privée (home.arpa), supervision en temps réel et accès distant sécurisé.",
+    stack: ["WSL2", "Docker", "DNS / home.arpa", "Caddy / Traefik", "WireGuard", "Uptime Kuma"],
+    status: "lab",
+    internalRoute: "#homelab"
   },
   {
     name: "SafeDrag",
@@ -103,4 +105,3 @@ export const services = [
     text: "Relevés d'observation, captation aérienne par drone pour devis/plans, et création de petits outils sur mesure."
   }
 ];
-

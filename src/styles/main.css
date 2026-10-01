@@ -449,6 +449,185 @@ a {
   color: #5f6f83;
 }
 
+.project-link--internal {
+  color: var(--cyan-strong);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.project-link--internal:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* Homelab Section Styles */
+.homelab-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.homelab-stat-card {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.homelab-stat-card__number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--cyan-strong), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+
+.homelab-stat-card__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.homelab-stat-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.homelab-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.homelab-pillar {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.homelab-pillar__header {
+  margin-bottom: 1.2rem;
+}
+
+.homelab-pillar__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 0.4rem;
+}
+
+.homelab-pillar h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.homelab-pillar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.homelab-pillar li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.homelab-pillar li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--cyan-strong);
+  font-weight: bold;
+}
+
+.homelab-pillar li strong {
+  color: #e2e8f0;
+}
+
+.homelab-pillar code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--cyan);
+}
+
+.homelab-audit-card {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.homelab-audit-card__header {
+  margin-bottom: 1.5rem;
+}
+
+.homelab-audit-card__header h3 {
+  font-size: 1.5rem;
+  margin: 0.3rem 0 0;
+}
+
+.homelab-audit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.homelab-audit-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.audit-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.audit-badge--ok {
+  background: rgba(139, 255, 186, 0.12);
+  color: #8bffba;
+  border: 1px solid rgba(139, 255, 186, 0.3);
+}
+
+.homelab-audit-item h4 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.homelab-audit-item p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
