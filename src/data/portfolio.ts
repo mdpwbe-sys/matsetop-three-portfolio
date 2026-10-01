@@ -45,10 +45,10 @@ export const projects: Project[] = [
     slug: "wsl-homelab-infrastructure",
     category: "Infrastructure & Networking",
     description:
-      "Architecture Homelab hybride sous WSL2/Linux : orchestration de 50+ microservices, passerelle de reverse proxying SSL, zone DNS privée (home.arpa), supervision en temps réel et accès distant sécurisé.",
-    stack: ["WSL2", "Docker", "DNS / home.arpa", "Caddy / Traefik", "WireGuard", "Uptime Kuma"],
-    status: "lab",
-    internalRoute: "#homelab"
+      "Architecture Homelab hybride sous WSL2/Linux : orchestration de 50+ microservices (Activepieces, GLPI, Chevereto, WebODM, Home Assistant, Ollama), double reverse proxy SSL, zone DNS privée (home.arpa) et modèle zéro-confiance.",
+    stack: ["WSL2", "Docker", "DNS / home.arpa", "Caddy / Traefik", "WireGuard", "Activepieces", "Uptime Kuma"],
+    status: "live",
+    internalRoute: "/homelab.html"
   },
   {
     name: "SafeDrag",

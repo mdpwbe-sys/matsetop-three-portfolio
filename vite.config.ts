@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -6,6 +7,12 @@ export default defineConfig({
     port: 5173
   },
   build: {
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        homelab: resolve(__dirname, "homelab.html")
+      }
+    }
   }
 });
