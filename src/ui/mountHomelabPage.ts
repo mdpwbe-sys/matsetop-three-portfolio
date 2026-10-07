@@ -1,293 +1,54 @@
+import { labGroups } from "../data/homelab";
+
 export function mountHomelabPage(root: HTMLElement) {
+  const count = labGroups.reduce((total, group) => total + group.services.length, 0);
   root.innerHTML = `
     <header class="topbar">
-      <a class="brand" href="/#home" aria-label="Accueil">
-        <span class="brand__mark" title="Noyau 3D interactif">
-          <canvas id="brand-core" width="38" height="38"></canvas>
-        </span>
-        <span>MATSETOP</span>
-      </a>
-
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="/#services">Services</a>
-        <a href="/#projects">Projets</a>
-        <a href="/#about">Profil</a>
-        <a class="nav__cta" href="/#contact">Contact</a>
-      </nav>
+      <a class="brand" href="/#home" aria-label="Accueil"><span class="brand__mark"><canvas id="brand-core" width="38" height="38" aria-hidden="true"></canvas></span><span>MATSETOP</span></a>
+      <nav class="nav" aria-label="Navigation principale"><a href="/#services">Services</a><a href="/#projects">Projets</a><a href="/#about">Profil</a><a class="nav__cta" href="/#contact">Contact</a></nav>
     </header>
-
-    <main class="case-study-page">
+    <main class="case-study-page homelab-page">
       <article class="case-study-container">
-        
-        <!-- HEADER / HERO DE L'ÉTUDE DE CAS -->
         <header class="case-study-header">
           <a class="back-link" href="/#projects">← Retour au portfolio</a>
-          <div class="case-study-meta">
-            <span class="eyebrow">INFRASTRUCTURE · NETWORKING · SECURITY · LAB</span>
-            <span class="read-time">⏱️ 12 Min Read</span>
-          </div>
-          <h1 class="case-study-title">Building and Securing a Multi-Service Hybrid Home Lab</h1>
-          <p class="case-study-lead">
-            Architecture, isolation réseau, reverse-proxying double flux, zone DNS privée split-horizon, 
-            supervision temps réel et modèle de sécurité zéro-confiance pour plus de 50 microservices interconnectés (Activepieces, GLPI, Chevereto, WebODM, Home Assistant, Ollama).
-          </p>
-          <div class="case-study-tags">
-            <span>WSL2 / Linux</span>
-            <span>Docker & Compose</span>
-            <span>Coolify & Traefik</span>
-            <span>Technitium DNS (*.home.arpa)</span>
-            <span>Caddy Gateway</span>
-            <span>WireGuard Zero-Trust</span>
-            <span>Cloudflare Tunnel</span>
-            <span>Activepieces & n8n</span>
-            <span>Uptime Kuma & Beszel</span>
-            <span>Local AI (Ollama & Open WebUI)</span>
-            <span>GLPI ITSM</span>
-            <span>Chevereto & Immich</span>
-            <span>WebODM & Drone Log</span>
-            <span>Home Assistant</span>
-          </div>
+          <div class="case-study-meta"><span class="eyebrow">SYSTEMS · AUTOMATION · LOCAL AI</span><span class="read-time">Inventaire éditorial · octobre 2026</span></div>
+          <h1 class="case-study-title">Un homelab hybride.<br>Des services, des liens, des usages.</h1>
+          <p class="case-study-lead">Windows et Ubuntu WSL2 accueillent une infrastructure personnelle pour développer, automatiser, créer et conserver des données. Docker, services Linux et outils de bureau forment un ensemble piloté, surveillé et sauvegardé.</p>
+          <div class="case-study-tags"><span>WSL2 / Ubuntu</span><span>Docker & Compose</span><span>CasaOS + Coolify</span><span>IA & médias</span><span>Récupération testée</span></div>
         </header>
-
-        <!-- INTRODUCTION -->
-        <section class="case-study-section">
-          <h2>1. Vision Globale & Philosophie du Lab</h2>
-          <p>
-            Plutôt que de dédier une machine physique à une seule application ou d'empiler des conteneurs de manière monolithique, 
-            ce lab a été conçu comme une <strong>plateforme d'infrastructure agile, sécurisée et modulaire</strong>. Il sert d'environnement 
-            d'expérimentation et de production pour l'administration système Linux, l'orchestration Docker Compose / Coolify, l'ingénierie réseau, 
-            la sécurité périmétrique, la supervision proactive et le déploiement d'IA locale souveraine.
-          </p>
-          <p>
-            L'environnement orchestre plus de 50 conteneurs actifs répartis en piles thématiques interconnectées par des réseaux virtuels dédiés.
-          </p>
-          
-          <div class="homelab-stats-grid">
-            <div class="homelab-stat-card glass-card">
-              <span class="homelab-stat-card__number">50+</span>
-              <span class="homelab-stat-card__label">Microservices Opérationnels</span>
-              <p>Orchestration modulaire sous Ubuntu WSL2 durci et hôte Windows physique.</p>
-            </div>
-            <div class="homelab-stat-card glass-card">
-              <span class="homelab-stat-card__number">37+</span>
-              <span class="homelab-stat-card__label">Moniteurs Actifs</span>
-              <p>Supervision active end-to-end (routes HTTP/TLS, résolutions DNS, API et métriques matérielles).</p>
-            </div>
-            <div class="homelab-stat-card glass-card">
-              <span class="homelab-stat-card__number">Zero</span>
-              <span class="homelab-stat-card__label">Port Web Exposé sur le WAN</span>
-              <p>Flux publics exclusivement sécurisés via Cloudflare Tunnel chiffré sans ouverture de port entrant.</p>
-            </div>
-            <div class="homelab-stat-card glass-card">
-              <span class="homelab-stat-card__number">*.home.arpa</span>
-              <span class="homelab-stat-card__label">Zone DNS & TLS Interne</span>
-              <p>Résolution split-horizon (Technitium DNS) avec certificats SSL locaux automatiques (Caddy).</p>
-            </div>
+        <div class="lab-overview">
+          <div class="glass-card lab-summary"><span class="eyebrow">INVENTAIRE</span><strong>${count}</strong><p>Briques décrites, regroupées par usage. Ce nombre inclut socle, applications et dépendances : ce n’est pas un compteur de conteneurs actifs.</p></div>
+          <div class="glass-card lab-summary"><span class="eyebrow">EXÉCUTION</span><strong>Étagée</strong><p>Infrastructure essentielle en priorité, démarrage différé pour certains outils IA et backends lourds à la demande.</p></div>
+          <div class="glass-card lab-summary"><span class="eyebrow">ACCÈS</span><strong>Sélectif</strong><p>Services publics choisis, outils privés derrière les accès prévus. Cette page présente les usages, pas les consoles d’administration.</p></div>
+        </div>
+        <nav class="lab-index" aria-label="Sections du homelab"><a href="#architecture">Architecture</a>${labGroups.map(g => `<a href="#${g.id}">${g.title}</a>`).join("")}<a href="#recovery">Résilience</a><a href="#projects">Projets actuels</a></nav>
+        <section class="case-study-section" id="architecture">
+          <span class="eyebrow">01 / RELATIONS</span><h2>Une architecture par couches</h2>
+          <div class="lab-flows">
+            <article class="glass-card lab-flow"><h3>Accès public</h3><p class="lab-route">Internet → Cloudflare → tunnel → services publiés</p><p>La publication d’un service est un choix explicite. Elle est séparée de la gestion des applications et de leurs dépendances.</p></article>
+            <article class="glass-card lab-flow"><h3>Accès privé</h3><p class="lab-route">Réseau local / WireGuard → DNS → proxy TLS → applications</p><p>Technitium fournit la résolution ; Caddy achemine les requêtes HTTPS. L’authentification dépend ensuite du service et de sa passerelle.</p></article>
+            <article class="glass-card lab-flow"><h3>Exécution & données</h3><p class="lab-route">Windows → WSL2 → Docker / systemd → stockage persistant</p><p>CasaOS et Coolify administrent leurs stacks. Le code, les images de build et les données de production sont conservés comme éléments distincts.</p></article>
+            <article class="glass-card lab-flow"><h3>Observer & récupérer</h3><p class="lab-route">Sondes + métriques + logs → diagnostic → backup / restauration</p><p>Uptime Kuma, Beszel et Dozzle donnent des vues complémentaires. Duplicati et les dumps de bases protègent les éléments nécessaires à la reconstruction.</p></article>
           </div>
+          <p class="lab-note">Schéma logique simplifié : il ne représente pas chaque route réseau. Un hôte principal reste un point de dépendance ; ce lab n’est pas une infrastructure haute disponibilité.</p>
         </section>
-
-        <!-- FLUX & TOPOLOGIE -->
-        <section class="case-study-section">
-          <h2>2. Topologie Réseau & Flux de Communication</h2>
-          <p>
-            L'architecture applique une séparation stricte entre les <strong>accès internes privés</strong> (réservés au LAN et aux pairs VPN authentifiés) 
-            et les <strong>rares points d'entrée publics</strong>.
-          </p>
-
-          <div class="diagram-card glass-card">
-            <div class="diagram-title">Schéma d'Architecture & Flux Logique</div>
-            <pre class="ascii-diagram">
-+-----------------------------------------------------------------------------------+
-|                              POINTS D'ACCÈS CLIENTS                               |
-|                                                                                   |
-|   [ Client Externe / Internet ]                    [ Client Distant / LAN ]       |
-|                 │                                              │                  |
-|                 ▼ (Tunnel sortant chiffré)                     ▼ (Tunnel VPN)     |
-|       ┌──────────────────┐                           ┌──────────────────┐         |
-|       │ Cloudflare Edge  │                           │    WireGuard     │         |
-|       └─────────┬────────┘                           │   (UDP Chiffré)  │         |
-|                 │                                    └─────────┬────────┘         |
-|                 ▼                                              ▼                  |
-|       ┌──────────────────┐                           ┌──────────────────┐         |
-|       │  cloudflared     │                           │  Technitium DNS  │         |
-|       │  (Origine Locale)│                           │ (*.home.arpa)    │         |
-|       └─────────┬────────┘                           └─────────┬────────┘         |
-+─────────────────┼──────────────────────────────────────────────┼──────────────────+
-                  │                                              │
-                  ▼                                              ▼
-+───────────────────────────────────────────────────────────────────────────────────+
-|                           COUCHE DE REVERSE-PROXYING                              |
-|                                                                                   |
-|    [ Traefik / Coolify / Cloudflare (Public) ]     [ Caddy Gateway (Flux Privés) ]|
-|                 │                                              │                  |
-|                 ├────────► atsetop.be (AeroAssist Vitrine)     ├────────► Vaultwarden / Bitwarden
-|                 ├────────► gallery.atsetop.be (Chevereto Drone)├────────► Activepieces Automation
-|                 ├────────► helpdesk.balboing.com (GLPI)        ├────────► GLPI IT Service Desk
-|                 ├────────► media.balboing.com (Jellyfin)       ├────────► Immich Private AI Photo
-|                 ├────────► forum.balboing.com                  ├────────► WebODM & Drone Portal
-|                 ├────────► n8n.balboing.com                    ├────────► Home Assistant & IoT
-|                 └────────► uptime.balboing.com                 └────────► Local AI (Ollama & Codex)
-+───────────────────────────────────────────────────────────────────────────────────+
-|                           RÉSEAUX DOCKER INTERNES ISOLÉS                          |
-|                                                                                   |
-|  [ DB Networks ]              [ App Networks ]              [ Monitoring Network ]|
-|  • PostgreSQL (Activepieces)  • Activepieces Worker         • Uptime Kuma Engine  |
-|  • MariaDB (GLPI / Chevereto) • Immich Machine Learning     • Beszel Node Agent   |
-|  • Redis Brokers & Queues     • WebODM Worker & Broker      • Dozzle Log Streamer |
-|  • Coolify DB & Realtime      • Ollama GPU Inférence        • Technitium Core     |
-+-----------------------------------------------------------------------------------+
-            </pre>
-          </div>
+        ${labGroups.map((group, index) => `
+          <section class="case-study-section lab-category" id="${group.id}" aria-labelledby="title-${group.id}">
+            <span class="eyebrow">${String(index + 2).padStart(2, "0")} / ${group.services.length} BRIQUES</span>
+            <h2 id="title-${group.id}">${group.title}</h2><p>${group.intro}</p>
+            <div class="lab-service-grid">${group.services.map(s => `<article class="glass-card lab-service"><span class="lab-role">${s.role}</span><h3>${s.name}</h3><p>${s.description}</p></article>`).join("")}</div>
+          </section>`).join("")}
+        <section class="case-study-section" id="recovery">
+          <span class="eyebrow">LIFECYCLE / RECOVERY</span><h2>Résilience : préparer la relance</h2>
+          <p>Le durcissement vise un cycle complet : démarrer, fonctionner, terminer les écritures, puis redémarrer. Les contrôles et les essais de restauration réduisent les fragilités sans garantir l’absence d’incident.</p>
+          <ol class="lab-lifecycle"><li><strong>Preflight</strong><span>Vérifier fichiers, montages et données indispensables. Un secret, une clé ou une base absente ne sont pas recréés silencieusement.</span></li><li><strong>Boot ordonné</strong><span>Attendre Docker, DNS et passerelles avec des délais bornés, puis relancer les services permanents attendus.</span></li><li><strong>Readiness</strong><span>Tester réponses DNS et HTTP, état des services et dépendances. Préserver les lancements différés et à la demande.</span></li><li><strong>Arrêt contrôlé</strong><span>Mettre les tâches au repos, laisser les bases terminer leurs écritures et arrêter les services avant la fermeture de WSL.</span></li></ol>
+          <div class="lab-flows"><article class="glass-card lab-flow"><h3>Montages protégés</h3><p>Les sources critiques sont vérifiées comme fichiers ou dossiers selon leur usage. Les configurations durcies refusent un bind absent au lieu de créer un répertoire inattendu.</p></article><article class="glass-card lab-flow"><h3>Trois périmètres de backup</h3><p>Configurations du lab, projets en cours et bibliothèques personnelles ont des tâches distinctes. Les caches, environnements reconstruisibles et modèles IA sont exclus selon le périmètre.</p></article><article class="glass-card lab-flow"><h3>Données cohérentes</h3><p>Dumps SQL, snapshots SQLite cohérents, exports de configuration et guide de restauration accompagnent les archives chiffrées. Des restaurations de fichiers et de bases ont été vérifiées.</p></article><article class="glass-card lab-flow"><h3>Disponibilité ≠ sauvegarde</h3><p>Un service qui répond peut encore avoir des données à protéger. Une copie locale n’atteste pas à elle seule d’une copie cloud terminée : publication et contrôles sont des étapes distinctes.</p></article></div>
         </section>
-
-        <!-- SERVICES DETALLES -->
-        <section class="case-study-section">
-          <h2>3. Piliers Applicatifs & Écosystème de Services</h2>
-          <p>
-            Chaque brique logicielle a été choisie et déployée pour répondre à des cas d'usage réels :
-          </p>
-
-          <div class="homelab-pillars-grid">
-            <article class="homelab-pillar glass-card">
-              <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">ITSM, Automatisation & IoT</span>
-                <h3>Support, Workflows & Domotique</h3>
-              </div>
-              <ul>
-                <li><strong>GLPI Custom IT Service Desk :</strong> Gestion de parc d'équipements, SLA, inventaire d'actifs et formulaires de tickets personnalisés (<code>helpdesk.balboing.com</code>).</li>
-                <li><strong>Activepieces & n8n.io :</strong> Plateformes d'automatisation sans code et pipelines événementiels pour synchroniser les alertes et orchestrer les données.</li>
-                <li><strong>Home Assistant :</strong> Contrôle domotique centralisé, orchestration de capteurs IoT et télémétrie locale.</li>
-                <li><strong>WebODM & Flight Portal :</strong> Traitement photogrammétrique par drone, modélisation 3D de terrains et carnets de vol numériques (Open DroneLog).</li>
-                <li><strong>Vaultwarden :</strong> Gestionnaire de mots de passe et coffre-fort chiffré auto-hébergé avec synchronisation multi-appareils.</li>
-              </ul>
-            </article>
-
-            <article class="homelab-pillar glass-card">
-              <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">Streaming, Gaming & Médias Drone</span>
-                <h3>Divertissement & Galeries Métier</h3>
-              </div>
-              <ul>
-                <li><strong>Jellyfin :</strong> Serveur de streaming multimédia haute fidélité (films, séries, musique) avec transcodage matériel (<code>media.balboing.com</code>).</li>
-                <li><strong>Chevereto (Drone Media Hub) :</strong> Hébergement de galeries publiques de démonstration et d'espaces clients privés pour les livrables d'inspection drone (<code>gallery.atsetop.be</code>).</li>
-                <li><strong>RomM (Rom Manager) :</strong> Bibliothèque et gestionnaire de ROMs rétro-gaming avec serveur de streaming Webstation dédié. Sessions coopératives, multijoueur (MP) et sauvegardes persistantes synchronisées (<code>forum.balboing.com</code>).</li>
-                <li><strong>Immich :</strong> Gestionnaire de photos privé avec reconnaissance faciale ML, indexation sémantique et sauvegarde instantanée.</li>
-                <li><strong>Kavita & MediaMTX :</strong> Bibliothèque de lecture numérique (e-books/mangas) et passerelle de flux vidéo RTSP/WebRTC à ultra-faible latence.</li>
-              </ul>
-            </article>
-
-            <article class="homelab-pillar glass-card">
-              <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">IA Locale & Inférence</span>
-                <h3>Intelligence Artificielle Souveraine</h3>
-              </div>
-              <ul>
-                <li><strong>Ollama & Moteurs LLM Locaux :</strong> Exécution de modèles d'inférence (Qwen, Mistral-Nemo) garantissant 100% de souveraineté sans fuite de données.</li>
-                <li><strong>Open WebUI & Page Assist :</strong> Interfaces web et extensions de navigateur pour le prompt-engineering multimodal et les assistants IA.</li>
-                <li><strong>ComfyUI & Stable Diffusion Control :</strong> Génération et manipulation d'images assistée par GPU avec pipelines de contrôle avancés.</li>
-                <li><strong>Agents Autonomes (OpenClaw, Hermes, MiroFish) :</strong> Passerelles d'agents IA distribuées (Swagger UI / ReDoc) connectées aux outils système.</li>
-              </ul>
-            </article>
-
-            <article class="homelab-pillar glass-card">
-              <div class="homelab-pillar__header">
-                <span class="homelab-pillar__tag">Outils, GED & Supervision</span>
-                <h3>Productivité, Knowledge & Monitoring</h3>
-              </div>
-              <ul>
-                <li><strong>Uptime Kuma & Beszel :</strong> 37+ sondes de disponibilité end-to-end et télémétrie matérielle légère (CPU, RAM, stockage, GPU).</li>
-                <li><strong>Dozzle & Technitium DNS :</strong> Visualisation en direct des logs conteneurs et serveur DNS récursif privé (zone <code>home.arpa</code>).</li>
-                <li><strong>GED & Organisation :</strong> Paperless-ngx (indexation OCR), Filebrowser sécurisé, Obsidian Sync et Excalidraw Whiteboard.</li>
-                <li><strong>Boîte à Outils & Portails :</strong> Homarr Dashboard, CasaOS, IT-Tools, SearXNG (moteur de recherche privé), Linkding et Reactive Resume.</li>
-                <li><strong>Sauvegardes :</strong> Duplicati pour les sauvegardes chiffrées automatiques des volumes de configuration.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <!-- MODELE DE SECURITE -->
-        <section class="case-study-section">
-          <h2>4. Modèle de Sécurité en Couches (Defense in Depth)</h2>
-          <p>
-            Pour éviter l'écueil classique des conteneurs qui publient leurs ports par défaut sur toutes les interfaces réseau (<code>0.0.0.0</code>), 
-            une stratégie de défense en profondeur a été mise en œuvre :
-          </p>
-          
-          <div class="homelab-audit-card glass-card">
-            <div class="homelab-audit-grid">
-              <div class="homelab-audit-item">
-                <span class="audit-badge audit-badge--ok">Niveau 1 — Pare-feu Hôte</span>
-                <h4>Filtrage Strict des Entrées</h4>
-                <p>
-                  Les règles du pare-feu bloquent par défaut toutes les connexions entrantes sur les interfaces WAN. 
-                  Seul le port d'échange chiffré VPN est autorisé. L'interface d'administration est strictement isolée.
-                </p>
-              </div>
-              <div class="homelab-audit-item">
-                <span class="audit-badge audit-badge--ok">Niveau 2 — Isolation Docker</span>
-                <h4>Réseaux Internes Étanches</h4>
-                <p>
-                  Les bases de données (PostgreSQL, MariaDB, Redis) sont confinées dans des réseaux virtuels Docker 
-                  sans aucun mappage de port sur l'hôte, rendant impossible tout accès non autorisé depuis l'extérieur.
-                </p>
-              </div>
-              <div class="homelab-audit-item">
-                <span class="audit-badge audit-badge--ok">Niveau 3 — Zéro Exposition Directe</span>
-                <h4>Cloudflare Tunnel & VPN</h4>
-                <p>
-                  Les rares applications accessibles depuis Internet utilisent un tunnel sortant chiffré. 
-                  L'adresse IP réelle de l'infrastructure n'est jamais exposée dans les enregistrements DNS publics.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- AUDIT & HARDENING -->
-        <section class="case-study-section">
-          <h2>5. Méthodologie d'Audit & Durcissement Continu</h2>
-          <p>
-            Une campagne d'audit approfondie en lecture seule a été menée pour éliminer les points uniques de défaillance et fiabiliser la production :
-          </p>
-          <ul class="case-study-list">
-            <li><strong>Vérification des Upstreams de Reverse Proxy :</strong> Audit systématique de l'ensemble des cibles de routage (alignement des ports de production, protocoles HTTPS pour les services sensibles).</li>
-            <li><strong>Persistance des Ponts Docker Compose :</strong> Déclaration explicite des réseaux partagés dans les configurations Compose pour éviter toute perte de connectivité ou de résolution d'alias DNS lors des recréations de conteneurs.</li>
-            <li><strong>Surveillance du Parcours Utilisateur Réel :</strong> Migration des sondes Uptime Kuma pour tester non seulement le processus backend brut, mais l'ensemble de la chaîne (DNS local + certificat TLS + négociation reverse-proxy).</li>
-            <li><strong>Hygiène des Données & Secrets :</strong> Strict respect de l'isolation des fichiers d'environnement (<code>.env</code>), rotation des clés de session et exclusion des identifiants dans les systèmes de contrôle de version.</li>
-          </ul>
-        </section>
-
-        <!-- ENSEIGNEMENTS -->
-        <section class="case-study-section">
-          <h2>6. Enseignements & Perspectives</h2>
-          <p>
-            Ce projet démontre qu'une infrastructure auto-hébergée robuste ne repose pas uniquement sur l'accumulation d'outils, 
-            mais sur la <strong>maîtrise des flux réseau, l'automatisation des pipelines et la rigueur du cloisonnement de sécurité</strong>.
-          </p>
-          <p>
-            L'architecture hybride permet aujourd'hui d'exécuter des modèles d'IA souverains, d'automatiser des flux métier (Activepieces / n8n), 
-            de gérer des parcs d'équipements réels (GLPI), de centraliser des téraoctets de données multimédias et de tester en continu de nouvelles intégrations sans compromettre la sécurité globale.
-          </p>
-        </section>
-
-        <!-- FOOTER DE L'ARTICLE -->
-        <footer class="case-study-footer glass-card">
-          <div>
-            <h3>Besoin d'auditer ou structurer votre infrastructure ?</h3>
-            <p>Support IT, déploiement GLPI, durcissement de serveurs Linux/Windows ou automatisation de processus métier.</p>
-          </div>
-          <div class="case-study-footer__actions">
-            <a class="button button--primary" href="mailto:hello@matsetop.be">Contacter Matsetop</a>
-            <a class="button button--ghost" href="/#projects">Voir les autres projets</a>
-          </div>
-        </footer>
-
+        <section class="case-study-section" id="security-principles"><h2>Sécurité : des décisions explicites</h2><ul class="case-study-list"><li><strong>Accès limité :</strong> séparer publication publique, accès privé et administration ; conserver l’authentification des passerelles et applications.</li><li><strong>Secrets séparés :</strong> sauvegarder les éléments nécessaires à la récupération dans des archives chiffrées, sans les exposer dans le portfolio.</li><li><strong>Alertes sans suppression :</strong> le watchdog Windows signale les fichiers à examiner ; un moteur indisponible est un état dégradé à diagnostiquer.</li><li><strong>Visibilité mesurée :</strong> l’observation WSL ne couvre pas tout Windows, et un contrôle de santé ne remplace pas une validation fonctionnelle authentifiée.</li></ul></section>
+        <section class="case-study-section" id="projects"><span class="eyebrow">CURRENT PROJECTS</span><h2>Ce que le lab permet de construire</h2><div class="lab-flows"><article class="glass-card lab-flow"><h3>JARVIS · sécurité & pilotage</h3><p>Une interface Windows associe surveillance de fichiers, alertes et contrôle du cycle d’arrêt du homelab depuis la zone de notification.</p></article><article class="glass-card lab-flow"><h3>Forum · une seule codebase</h3><p>Le même forum fonctionne via accès classique, Tor et I2P. Ses polices et bibliothèques frontend sont auto-hébergées, y compris le lecteur HLS.</p></article><article class="glass-card lab-flow"><h3>ATSETOP · photo & drone</h3><p>Le portail relie carnet de vol, photogrammétrie, galeries et diffusion vidéo. Chaque outil garde sa fonction et ses dépendances propres.</p></article><article class="glass-card lab-flow"><h3>IA · création & automatisation</h3><p>Agents, workflows visuels, recherche et audio partagent la même infrastructure avec une attention portée au démarrage et à l’usage des ressources.</p></article></div></section>
+        <footer class="case-study-footer glass-card"><div><h3>Relier les outils à leurs usages.</h3><p>Infrastructure, automatisation, diagnostic et récupération : les projets du lab alimentent une pratique concrète du support IT.</p></div><div class="case-study-footer__actions"><a class="button button--primary" href="/#contact">Parlons de votre projet</a><a class="button button--ghost" href="/#projects">Retour au portfolio</a></div></footer>
       </article>
     </main>
-
-    <footer>
-      <span>© ${new Date().getFullYear()} Matsetop</span>
-      <span>Built with Three.js</span>
-    </footer>
+    <footer><span>© ${new Date().getFullYear()} Matsetop</span><span>Built with Three.js</span></footer>
   `;
 }

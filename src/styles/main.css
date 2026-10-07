@@ -956,3 +956,39 @@ footer {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Public homelab inventory; scoped to preserve the portfolio landing page. */
+.homelab-page .case-study-container { max-width: 1180px; }
+.homelab-page .case-study-header { max-width: 940px; }
+.homelab-page .lab-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.homelab-page .lab-summary { padding: 1.5rem; }
+.homelab-page .lab-summary strong { display: block; font-size: 2rem; color: var(--cyan); margin: .8rem 0; }
+.homelab-page .lab-summary p { color: var(--muted); line-height: 1.65; font-size: .9rem; margin: 0; }
+.homelab-page .lab-index { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 4rem; }
+.homelab-page .lab-index a { border: 1px solid var(--line); border-radius: 5px; padding: .55rem .8rem; font-size: .78rem; color: var(--muted); }
+.homelab-page .lab-index a:hover { color: var(--cyan); border-color: var(--cyan); }
+.homelab-page section[id] { scroll-margin-top: 7rem; }
+.homelab-page .lab-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.homelab-page .lab-service { padding: 1.4rem; border-top: 2px solid rgba(139,233,255,.28); }
+.homelab-page .lab-role { font-size: .7rem; color: var(--cyan); text-transform: uppercase; letter-spacing: .09em; }
+.homelab-page .lab-service h3, .homelab-page .lab-flow h3 { font-size: 1.12rem; margin: .75rem 0; color: var(--text); }
+.homelab-page .lab-service p, .homelab-page .lab-flow p { font-size: .9rem; line-height: 1.75; margin: 0; }
+.homelab-page .lab-flows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.homelab-page .lab-flow { padding: 1.5rem; }
+.homelab-page .lab-flow .lab-route { font-family: ui-monospace, monospace; color: var(--cyan); font-size: .85rem; margin-bottom: 1rem; }
+.homelab-page .lab-note { border-left: 2px solid var(--cyan); padding: .8rem 1rem; background: rgba(139,233,255,.04); }
+.homelab-page .lab-lifecycle { padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: phase; }
+.homelab-page .lab-lifecycle li { padding: 1.2rem; border: 1px solid var(--line); border-radius: 8px; counter-increment: phase; }
+.homelab-page .lab-lifecycle li::before { content: "0" counter(phase); display: block; color: var(--cyan); font-family: ui-monospace, monospace; margin-bottom: .8rem; }
+.homelab-page .lab-lifecycle strong { display: block; margin-bottom: .7rem; }
+.homelab-page .lab-lifecycle span { color: var(--muted); font-size: .88rem; line-height: 1.65; }
+.homelab-page a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+@media (max-width: 900px) {
+  .homelab-page .lab-service-grid, .homelab-page .lab-lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .homelab-page .lab-overview { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .homelab-page .lab-service-grid, .homelab-page .lab-flows, .homelab-page .lab-lifecycle { grid-template-columns: 1fr; }
+  .homelab-page .lab-index { margin-bottom: 2.5rem; }
+  .homelab-page .case-study-section h2 { font-size: 1.5rem; }
+}
