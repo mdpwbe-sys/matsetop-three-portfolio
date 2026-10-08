@@ -157,8 +157,8 @@ export function mountUI(root: HTMLElement) {
           expliquez-moi simplement ce qui vous fait perdre du temps.
         </p>
 
-        <a class="button button--primary" href="mailto:hello@matsetop.be">
-          hello@matsetop.be
+        <a class="button button--primary" href="mailto:hello@atsetop.be">
+          hello@atsetop.be
         </a>
       </section>
     </main>
