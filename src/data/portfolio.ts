@@ -117,7 +117,8 @@ export const projects: Project[] = [
     description:
       "Studio de personnalisation en ligne de cartes de visite interactives (éditeur HTML5/CSS3/Canvas haute résolution, micro-animations, prévisualisation 3D temps réel) avec service d'impression premium et livraison à domicile.",
     stack: ["HTML5 Canvas", "CSS3 3D / Shaders", "JavaScript", "Vector Export / PDF Print", "E-Commerce"],
-    status: "prototype"
+    status: "live",
+    url: "https://cardstudio.atsetop.be"
   },
   {
     name: "Ultra E-Shop & Analytics Suite",
