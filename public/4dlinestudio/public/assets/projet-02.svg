@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 885" role="img" aria-label="Illustration provisoire d'aménagement intérieur">
+<defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ede0cc"/><stop offset="1" stop-color="#b6ac9c"/></linearGradient>
+  <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#627572"/><stop offset="1" stop-color="#293f42"/></linearGradient>
+  <linearGradient id="floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b19a81"/><stop offset="1" stop-color="#67574e"/></linearGradient>
+  <linearGradient id="sofa" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddd4c5"/><stop offset="1" stop-color="#a9a599"/></linearGradient>
+</defs>
+<rect width="1200" height="885" fill="#aab0aa"/>
+<path d="M0 0H1200V649L683 787 0 573Z" fill="url(#wall)"/>
+<path d="m0 0 430 0 0 562L0 598Z" fill="#a7aa9f"/>
+<path d="m430 0 770 0v565L430 561Z" fill="#d9d0c1"/>
+<path d="M0 572 431 522 1200 561V885H0Z" fill="url(#floor)"/>
+<path d="M460 85 1003 82v440L460 511Z" fill="#8c958c"/>
+<path d="m487 104 490-3v384l-490-3Z" fill="url(#shade)"/>
+<path d="m715 104 11 383M487 354l490 1" stroke="#2a3c3e" stroke-width="17"/>
+<path d="m504 370 165-192 44 308-209-4Z" fill="#d1c5ae" opacity=".19"/>
+<path d="m750 354 213-185v317l-213 0Z" fill="#dfc9ae" opacity=".11"/>
+<path d="m132 598 322-33 271 91-337 67Z" fill="#e7d8c5" opacity=".6"/>
+<path d="m235 501 250-20 117 56-249 35Z" fill="#c3bdac"/>
+<path d="m231 487 250-14 128 54-256 27Z" fill="url(#sofa)"/>
+<path d="m210 514 146 34-3 123-151-34Z" fill="#c2bbaf"/>
+<path d="m352 548 267-28v133l-267 18Z" fill="url(#sofa)"/>
+<path d="m353 622 259-17 19 44-287 25Z" fill="#988e7f"/>
+<path d="m418 639 304-15 85 52-340 30Z" fill="#7a624d"/>
+<path d="m426 624 294-15 84 46-330 27Z" fill="#b08d66"/>
+<path d="m461 681-4 61m295-73 0 68" stroke="#4f453e" stroke-width="12"/>
+<path d="m787 513 146-10 51 25-152 13Z" fill="#cdc0ad"/>
+<path d="m804 529 154-14v126l-154 17Z" fill="#6d7268"/>
+<path d="m856 443 84 0 25 71-130 9Z" fill="#928d72"/>
+<path d="m875 413 8 35m45-35 0 35" stroke="#b5ac83" stroke-width="8"/>
+<path d="M101 239h99v215h-99Z" fill="#a79e86"/>
+<path d="M120 260h62v174h-62Z" fill="#d8c9a9"/>
+<circle cx="1038" cy="570" r="54" fill="#527165"/>
+<circle cx="1086" cy="546" r="46" fill="#3f6056"/>
+<path d="m1057 589 0 113" stroke="#615a49" stroke-width="15"/>
+<rect x="27" y="28" width="283" height="42" fill="#101819" opacity=".76"/>
+<text x="48" y="56" font-family="Arial,sans-serif" fill="#f7f5ed" font-size="16" letter-spacing="3">APERÇU CONCEPTUEL</text>
+<rect x="28" y="783" width="520" height="65" fill="#101819" opacity=".86"/>
+<text x="52" y="810" font-family="Arial,sans-serif" fill="#e0b68f" font-weight="bold" font-size="16" letter-spacing="3">PROJET 02 / EMPLACEMENT RÉSERVÉ</text>
+<text x="52" y="835" font-family="Arial,sans-serif" fill="#e8ebe6" font-size="14">Remplacer par votre rendu photoréaliste original</text>
+</svg>

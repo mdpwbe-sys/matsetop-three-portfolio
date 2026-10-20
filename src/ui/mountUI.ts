@@ -83,7 +83,7 @@ export function mountUI(root: HTMLElement) {
           <h2>Projets & réalisations.</h2>
           <p>
             Des projets utilisés comme preuves techniques : systèmes Windows,
-            sécurité, automatisation, web et IA locale.
+            sécurité, automatisation, web, IA locale et visualisation 3D.
           </p>
         </div>
 
@@ -110,7 +110,7 @@ export function mountUI(root: HTMLElement) {
                     project.url
                       ? `<a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">Ouvrir ↗</a>`
                       : project.internalRoute
-                      ? `<a class="project-link project-link--internal" href="${project.internalRoute}">Lire l'étude de cas ↗</a>`
+                      ? `<a class="project-link project-link--internal" href="${project.internalRoute}">${project.linkLabel ?? "Lire l’étude de cas ↗"}</a>`
                       : `<span class="project-link project-link--muted">Étude de cas bientôt</span>`
                   }
                 </article>

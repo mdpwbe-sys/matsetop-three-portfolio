@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-20T08:16:26.222Z",
+  "base": "http://127.0.0.1:4180",
+  "results": [
+    "Portfolio principal : 13 tuiles, dont la nouvelle tuile vers /4dlinestudio/.",
+    "Sous-dossier : deux modèles 3D chargés, vues intérieures et extérieures, décalage du van, Soir actif et sélecteur caché.",
+    "Cinq images, deux vidéos et galerie agrandie fonctionnent sous le chemin de publication.",
+    "Alias /4Dlinestudio/ : redirection vers /4dlinestudio/, paramètres et ancre préservés.",
+    "Page Homelab toujours accessible, aucune erreur console ou requête HTTP en échec durant les parcours."
+  ],
+  "errors": []
+}

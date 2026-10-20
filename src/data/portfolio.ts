@@ -7,9 +7,21 @@ export type Project = {
   status: "live" | "prototype" | "lab";
   url?: string;
   internalRoute?: string;
+  linkLabel?: string;
 };
 
 export const projects: Project[] = [
+  {
+    name: "4D Line Concept — Studio 3D",
+    slug: "4d-line-concept",
+    category: "Visualisation & Modélisation 3D",
+    description:
+      "Portfolio de valorisation visuelle : un appartement studio et un projet de van, présentés en rendus, vidéos et modèles 3D interactifs avec vues intérieures. Une approche des transformations entièrement virtuelles, sans exécution de travaux.",
+    stack: ["SketchUp", "D5 Render", "WebGL / GLB", "Galeries & vidéo"],
+    status: "prototype",
+    internalRoute: "/4dlinestudio/",
+    linkLabel: "Découvrir le studio ↗"
+  },
   {
     name: "AeroAssist & TopoSurvey",
     slug: "aero-assist-topo",
