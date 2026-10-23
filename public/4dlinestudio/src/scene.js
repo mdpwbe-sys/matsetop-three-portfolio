@@ -10,30 +10,97 @@ export async function initScene() {
   let selected = interactiveModels[0];
   let mode = 'interior';
   let center;
+  let size;
+  /** @type {{ min: {x:number,y:number,z:number}, max: {x:number,y:number,z:number}, minRadius: number } | null} */
+  let safeBox = null;
+  let clamping = false;
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const buildSafeBox = () => {
+    // Marge intérieure pour limiter la traversée des parois (approx. collision AABB).
+    const margin = selected.interiorMargin ?? 0.35;
+    const half = { x: size.x / 2, y: size.y / 2, z: size.z / 2 };
+    safeBox = {
+      min: {
+        x: center.x - half.x + margin,
+        y: center.y - half.y + margin,
+        z: center.z - half.z + margin
+      },
+      max: {
+        x: center.x + half.x - margin,
+        y: center.y + half.y - margin,
+        z: center.z + half.z - margin
+      },
+      minRadius: selected.interiorMinRadius ?? 0.015
+    };
+    // Si le modèle est trop petit pour la marge, recentrer une boîte minimale.
+    ['x', 'y', 'z'].forEach((axis) => {
+      if (safeBox.min[axis] > safeBox.max[axis]) {
+        const mid = center[axis];
+        safeBox.min[axis] = mid - 0.05;
+        safeBox.max[axis] = mid + 0.05;
+      }
+    });
+  };
+
+  const maxRadiusAt = (point) => {
+    if (!safeBox) return selected.interiorMinRadius ?? 0.015;
+    return Math.max(
+      safeBox.minRadius,
+      Math.min(
+        point.x - safeBox.min.x,
+        safeBox.max.x - point.x,
+        point.y - safeBox.min.y,
+        safeBox.max.y - point.y,
+        point.z - safeBox.min.z,
+        safeBox.max.z - point.z
+      ) * 0.92
+    );
+  };
+
+  const interiorTarget = () => {
+    const offset = selected.interiorOffset || {};
+    if (selected.interiorAtCenter) {
+      return {
+        x: center.x + (offset.x || 0),
+        y: center.y + (offset.y || 0),
+        z: center.z + (offset.z || 0)
+      };
+    }
+    // Studio : hauteur d’œil debout plutôt que centre géométrique.
+    const eyeHeight = center.y - size.y / 2 + Math.min(1.45, size.y * 0.58);
+    return {
+      x: center.x + (offset.x || 0),
+      y: eyeHeight + (offset.y || 0),
+      z: center.z + (offset.z || 0)
+    };
+  };
 
   const updateStatus = () => {
     status.textContent = mode === 'interior'
       ? 'Vue intérieure · glisser pour regarder · clic droit pour se déplacer · molette pour zoomer'
       : 'Vue d’ensemble · glisser pour tourner, molette pour zoomer, clic droit pour déplacer';
   };
+
   const setView = (nextMode) => {
     mode = nextMode;
-    // Pan (clic droit) actif aussi en intérieur pour recentrer si besoin.
     viewer.disablePan = false;
     if (mode === 'interior') {
-      const size = viewer.getDimensions();
-      // Point de vue intérieur, avec ajustement propre au projet si nécessaire.
-      const eyeHeight = center.y - size.y / 2 + Math.min(1.45, size.y * .58);
-      const radius = selected.interiorRadius || '0.015m';
-      viewer.minCameraOrbit = `auto 25deg ${radius}`;
-      viewer.maxCameraOrbit = `auto 155deg ${selected.interiorRadiusMax || '1.2m'}`;
+      buildSafeBox();
+      const target = interiorTarget();
+      const startRadius = selected.interiorMinRadius ?? 0.015;
+      const maxR = maxRadiusAt(target);
+      viewer.minCameraOrbit = `auto 25deg ${startRadius}m`;
+      viewer.maxCameraOrbit = `auto 155deg ${Math.max(startRadius, maxR)}m`;
       viewer.minFieldOfView = '45deg';
       viewer.maxFieldOfView = '90deg';
       viewer.fieldOfView = '75deg';
-      const offset = selected.interiorOffset || {};
-      viewer.cameraTarget = `${center.x + (offset.x || 0)}m ${eyeHeight + (offset.y || 0)}m ${center.z + (offset.z || 0)}m`;
-      viewer.cameraOrbit = selected.interiorOrbit;
+      // Zoom 0 = rayon minimal au départ, cible au point central configuré.
+      viewer.cameraTarget = `${target.x}m ${target.y}m ${target.z}m`;
+      viewer.cameraOrbit = selected.interiorOrbit || `90deg 85deg ${startRadius}m`;
     } else {
+      safeBox = null;
       viewer.minCameraOrbit = 'auto 15deg 20%';
       viewer.maxCameraOrbit = 'auto 100deg 180%';
       viewer.minFieldOfView = '12deg';
@@ -42,7 +109,6 @@ export async function initScene() {
       viewer.cameraTarget = 'auto auto auto';
       viewer.cameraOrbit = selected.orbit;
     }
-    // Les propriétés Lit sont appliquées lors de la prochaine microtâche.
     viewer.updateComplete.then(() => viewer.jumpCameraToGoal());
     frame.dataset.cameraMode = mode;
     frame.querySelectorAll('[data-view]').forEach((button) => {
@@ -52,6 +118,30 @@ export async function initScene() {
     });
     updateStatus();
   };
+
+  // Empêche la caméra (cible + rayon) de sortir de la boîte intérieure ≈ surfaces.
+  viewer.addEventListener('camera-change', () => {
+    if (mode !== 'interior' || !safeBox || clamping) return;
+    const target = viewer.getCameraTarget();
+    const orbit = viewer.getCameraOrbit();
+    const nx = clamp(target.x, safeBox.min.x, safeBox.max.x);
+    const ny = clamp(target.y, safeBox.min.y, safeBox.max.y);
+    const nz = clamp(target.z, safeBox.min.z, safeBox.max.z);
+    const maxR = maxRadiusAt({ x: nx, y: ny, z: nz });
+    const nr = clamp(orbit.radius, safeBox.minRadius, maxR);
+    const moved =
+      Math.abs(nx - target.x) > 0.001 ||
+      Math.abs(ny - target.y) > 0.001 ||
+      Math.abs(nz - target.z) > 0.001 ||
+      Math.abs(nr - orbit.radius) > 0.001;
+    if (!moved) return;
+    clamping = true;
+    viewer.cameraTarget = `${nx}m ${ny}m ${nz}m`;
+    viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${nr}m`;
+    viewer.jumpCameraToGoal();
+    requestAnimationFrame(() => { clamping = false; });
+  });
+
   const fail = () => {
     frame.dataset.modelState = 'error';
     viewer.hidden = true;
@@ -62,6 +152,7 @@ export async function initScene() {
   viewer.addEventListener('error', fail);
   viewer.addEventListener('load', () => {
     center = viewer.getBoundingBoxCenter();
+    size = viewer.getDimensions();
     frame.dataset.modelState = 'ready';
     controls.forEach((button) => { button.disabled = false; });
     if (!frame.requestFullscreen) document.querySelector('#model-fullscreen').hidden = true;

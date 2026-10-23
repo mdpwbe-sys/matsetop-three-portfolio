@@ -52,6 +52,18 @@ export const siteConfig = {
 
 // Modèles personnels exportés depuis SketchUp, servis exclusivement en local.
 export const interactiveModels = [
-  { id: 'studio', label: 'Appartement studio', src: `${modelRoot}studio.glb`, poster: `${mediaRoot}studio-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '65deg 85deg 0.015m' },
-  { id: 'van', label: 'Projet van', src: `${modelRoot}van.glb`, poster: `${mediaRoot}van-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '90deg 85deg 0.08m', interiorOffset: { z: 0.2 }, interiorRadius: '0.08m', interiorRadiusMax: '2.5m' }
+  { id: 'studio', label: 'Appartement studio', src: `${modelRoot}studio.glb`, poster: `${mediaRoot}studio-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '65deg 85deg 0.015m', interiorMinRadius: 0.015, interiorMargin: 0.28 },
+  {
+    id: 'van',
+    label: 'Projet van',
+    src: `${modelRoot}van.glb`,
+    poster: `${mediaRoot}van-poster.webp`,
+    orbit: '125deg 65deg 115%',
+    // Centre géométrique, zoom 0 (rayon mini) au départ.
+    interiorAtCenter: true,
+    interiorOrbit: '90deg 85deg 0.015m',
+    interiorMinRadius: 0.015,
+    interiorMargin: 0.4
+  }
 ];
+
