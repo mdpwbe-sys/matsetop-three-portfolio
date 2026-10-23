@@ -13,26 +13,27 @@ export async function initScene() {
 
   const updateStatus = () => {
     status.textContent = mode === 'interior'
-      ? 'Vue intérieure · glisser ou utiliser les flèches pour regarder autour de soi'
-      : 'Vue d’ensemble · glisser pour tourner, molette pour zoomer';
+      ? 'Vue intérieure · glisser pour regarder · clic droit pour se déplacer · molette pour zoomer'
+      : 'Vue d’ensemble · glisser pour tourner, molette pour zoomer, clic droit pour déplacer';
   };
   const setView = (nextMode) => {
     mode = nextMode;
+    // Pan (clic droit) actif aussi en intérieur pour recentrer si besoin.
+    viewer.disablePan = false;
     if (mode === 'interior') {
-      viewer.disablePan = true;
       const size = viewer.getDimensions();
       // Point de vue intérieur, avec ajustement propre au projet si nécessaire.
       const eyeHeight = center.y - size.y / 2 + Math.min(1.45, size.y * .58);
-      viewer.minCameraOrbit = 'auto 25deg 0.015m';
-      viewer.maxCameraOrbit = 'auto 155deg 0.015m';
+      const radius = selected.interiorRadius || '0.015m';
+      viewer.minCameraOrbit = `auto 25deg ${radius}`;
+      viewer.maxCameraOrbit = `auto 155deg ${selected.interiorRadiusMax || '1.2m'}`;
       viewer.minFieldOfView = '45deg';
       viewer.maxFieldOfView = '90deg';
       viewer.fieldOfView = '75deg';
       const offset = selected.interiorOffset || {};
-      viewer.cameraTarget = `${center.x + (offset.x || 0)}m ${eyeHeight}m ${center.z + (offset.z || 0)}m`;
+      viewer.cameraTarget = `${center.x + (offset.x || 0)}m ${eyeHeight + (offset.y || 0)}m ${center.z + (offset.z || 0)}m`;
       viewer.cameraOrbit = selected.interiorOrbit;
     } else {
-      viewer.disablePan = false;
       viewer.minCameraOrbit = 'auto 15deg 20%';
       viewer.maxCameraOrbit = 'auto 100deg 180%';
       viewer.minFieldOfView = '12deg';

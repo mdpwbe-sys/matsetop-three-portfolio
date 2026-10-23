@@ -14,7 +14,7 @@ const studioImage = (number, label, alt) => ({
 
 export const siteConfig = {
   brand: '4D LINE CONCEPT',
-  email: '', // Renseigner l’adresse commerciale vérifiée avant la mise en ligne.
+  email: 'hello@atsetop.be',
   cityLabel: 'Belgique • projets à distance ou sur étude',
   canonicalUrl: 'https://m.atsetop.be/4dlinestudio/',
   projects: [
@@ -53,5 +53,5 @@ export const siteConfig = {
 // Modèles personnels exportés depuis SketchUp, servis exclusivement en local.
 export const interactiveModels = [
   { id: 'studio', label: 'Appartement studio', src: `${modelRoot}studio.glb`, poster: `${mediaRoot}studio-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '65deg 85deg 0.015m' },
-  { id: 'van', label: 'Projet van', src: `${modelRoot}van.glb`, poster: `${mediaRoot}van-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '90deg 85deg 0.015m', interiorOffset: { z: 0.35 } }
+  { id: 'van', label: 'Projet van', src: `${modelRoot}van.glb`, poster: `${mediaRoot}van-poster.webp`, orbit: '125deg 65deg 115%', interiorOrbit: '90deg 85deg 0.08m', interiorOffset: { z: 0.2 }, interiorRadius: '0.08m', interiorRadiusMax: '2.5m' }
 ];
