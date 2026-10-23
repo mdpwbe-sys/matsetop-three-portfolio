@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'; base-uri 'self'" />
     <meta name="theme-color" content="#0f1719" />
     <meta name="description" content="4D Line Concept — mise en valeur immobilière : plans en 3D, simulations virtuelles de transformations, rendus photoréalistes et prises de vues par drone." />
     <meta property="og:title" content="4D Line Concept — Valorisation immobilière, 3D & drone" />
@@ -10,6 +11,10 @@
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://m.atsetop.be/4dlinestudio/" />
     <meta property="og:url" content="https://m.atsetop.be/4dlinestudio/" />
+    <meta property="og:image" content="https://m.atsetop.be/4dlinestudio/public/assets/portfolio/studio-poster.webp" />
+    <meta property="og:image:alt" content="Aperçu 3D d’un appartement studio — 4D Line Concept" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://m.atsetop.be/4dlinestudio/public/assets/portfolio/studio-poster.webp" />
     <title>4D Line Concept — Révélez le potentiel de chaque bien</title>
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
@@ -61,7 +66,7 @@
               <div class="scene-viewport" id="scene-viewport">
                 <model-viewer id="project-model" src="./public/assets/models/studio.glb" alt="Modèle 3D de l’appartement studio. Faites glisser ou utilisez les flèches du clavier pour regarder autour de vous."
                   camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 0.015m" field-of-view="75deg" min-camera-orbit="auto 25deg 0.015m" max-camera-orbit="auto 155deg 0.015m" camera-target="auto auto auto"
-                  environment-image="neutral" exposure="0.55" shadow-intensity="0.6" shadow-softness="1" interaction-prompt="none" loading="eager" reveal="auto" poster="/public/assets/portfolio/studio-poster.webp">
+                  environment-image="neutral" exposure="0.55" shadow-intensity="0.6" shadow-softness="1" interaction-prompt="none" loading="lazy" reveal="auto" poster="./public/assets/portfolio/studio-poster.webp">
                   <img slot="poster" src="./public/assets/portfolio/studio-poster.webp" alt="Aperçu du studio en attendant le modèle interactif." />
                   <div slot="progress-bar"></div>
                 </model-viewer>
@@ -158,9 +163,9 @@
           <div class="contact-intro">
             <p class="eyebrow">04 / CONTACT</p>
             <h2 id="contact-title">Et si on donnait vie<br />à <em>votre projet ?</em></h2>
-            <p>Plans à modéliser, transformations à simuler virtuellement, bien à valoriser ou prises de vues par drone : parlons de votre besoin. Nous ne réalisons pas de travaux.</p>
+            <p>Plans à modéliser, transformations à simuler virtuellement, bien à valoriser ou prises de vues sur place : parlons de votre besoin. Nous ne réalisons pas de travaux.</p>
             <div class="contact-location"><span class="gold-dot"></span><span>Belgique · collaboration à distance possible</span></div>
-            <p class="contact-smallprint">Simulation virtuelle uniquement pour les transformations. Sur demande, mise en relation possible avec des professionnels indépendants. Drone sous réserve de faisabilité et des autorisations requises.</p>
+            <p class="contact-smallprint">Simulation virtuelle uniquement pour les transformations. Sur demande, mise en relation possible avec des professionnels indépendants. Drone à définir selon la faisabilité, les autorisations et les qualifications requises.</p>
           </div>
           <div class="contact-form-panel">
             <form id="brief-form" novalidate>
@@ -174,8 +179,9 @@
                 <label for="project-status">Vous êtes…<select id="project-status" name="profile"><option>Particulier</option><option>Professionnel de l'immobilier</option><option>Architecte / bureau d'étude</option><option>Autre</option></select></label>
               </div>
               <label for="project-message">Décrivez votre idée <span>*</span><textarea id="project-message" name="message" rows="5" required maxlength="3000" placeholder="Type de bien, besoin, état d'avancement, délais envisagés…"></textarea></label>
-              <button class="btn btn-primary btn-full" type="submit">Préparer ma demande <span aria-hidden="true">↗</span></button>
-              <p class="form-hint">Alpha sans serveur : votre demande se prépare sur cet appareil. Aucune donnée n'est transmise par ce site.</p>
+              <button class="btn btn-primary btn-full" id="prepare-brief" type="button" disabled>Préparer ma demande <span aria-hidden="true">↗</span></button>
+              <p class="form-hint">Cette demande est gratuite et sans engagement. Les champs sont préparés sur votre appareil ; aucun formulaire n’est envoyé à un serveur. L’envoi éventuel se fait depuis votre messagerie, après votre validation, à hello@atsetop.be. <a href="./legal/confidentialite.html">Données personnelles</a>.</p>
+              <noscript><p class="form-hint">La préparation du message nécessite JavaScript. Les champs ne sont pas envoyés lorsque JavaScript est désactivé.</p></noscript>
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
@@ -188,7 +194,7 @@
         <a class="footer-brand" href="#top"><strong>4D</strong> LINE CONCEPT<small>MODÉLISER · SIMULER · VALORISER · SURVOLER</small></a>
         <div class="footer-links"><a href="#realisations">Projets</a><a href="#expertises">Expertises</a><a href="#approche">Approche</a><a href="#contact">Contact</a></div>
       </div>
-      <div class="container footer-bottom"><span>© <span id="year"></span> 4D LINE CONCEPT · IDENTITÉ DE TRAVAIL</span><span>Mentions légales & coordonnées professionnelles à compléter avant publication.</span><a href="#top">RETOUR EN HAUT ↑</a></div>
+      <div class="container footer-bottom"><span>© <span id="year"></span> 4D LINE CONCEPT · IDENTITÉ DE TRAVAIL</span><nav class="legal-links" aria-label="Informations légales"><a href="./legal/mentions-legales.html">Mentions légales</a><a href="./legal/confidentialite.html">Confidentialité & cookies</a><a href="./legal/prestations.html">Cadre des prestations</a></nav><a href="#top">RETOUR EN HAUT ↑</a></div>
     </footer>
 
     <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title">

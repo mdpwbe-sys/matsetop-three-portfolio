@@ -87,7 +87,7 @@ function createGallery(project, { enlarged = false, startIndex = 0, onEnlarge } 
       button.setAttribute('aria-label', `${index + 1} / ${project.media.length} · ${media.label}`);
       const image = element('img');
       image.src = media.thumbnail || media.poster;
-      image.alt = '';
+      image.alt = media.alt || media.label;
       image.loading = 'lazy';
       image.width = 160;
       image.height = 105;
@@ -182,7 +182,7 @@ function getBrief(form) {
   const lines = [
     'Bonjour,',
     '',
-    'Je souhaite discuter d’un projet de visualisation immobilière 3D.',
+    'Je souhaite discuter d’un projet de visualisation 3D.',
     '',
     'Nom : ' + value('name'),
     'E-mail : ' + value('email'),
@@ -224,6 +224,15 @@ async function copyText(text) {
 function initForm() {
   const form = document.querySelector('#brief-form');
   const status = document.querySelector('#form-status');
+  const prepare = document.querySelector('#prepare-brief');
+  prepare.disabled = false;
+  prepare.addEventListener('click', () => form.requestSubmit());
+  form.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && event.target instanceof HTMLInputElement) {
+      event.preventDefault();
+      form.requestSubmit();
+    }
+  });
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.textContent = '';
@@ -243,7 +252,7 @@ function initForm() {
     }
     const copied = await copyText(message);
     if (copied) {
-      status.textContent = 'Votre demande est copiée dans le presse-papiers. L’adresse du studio doit encore être configurée pour pouvoir l’envoyer directement.';
+      status.textContent = 'Votre demande est copiée dans le presse-papiers. Envoyez-la ensuite à hello@atsetop.be.';
     } else {
       status.textContent = 'Copie automatique indisponible. Sélectionnez et copiez votre demande dans la fenêtre qui s’ouvre.';
       window.prompt('Copiez ce message pour l’envoyer depuis votre messagerie :', message);

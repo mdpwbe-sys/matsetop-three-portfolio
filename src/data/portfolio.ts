@@ -123,11 +123,11 @@ export const projects: Project[] = [
     url: "https://github.com/mdpwbe-sys/mmd-public-trader"
   },
   {
-    name: "CardStudio - Cartes de Visite Next-Gen",
+    name: "Pro-ID’Studio (CardStudio)",
     slug: "cardstudio-nextgen",
     category: "Web App & Print-on-Demand",
     description:
-      "Studio de personnalisation en ligne de cartes de visite interactives (éditeur HTML5/CSS3/Canvas haute résolution, micro-animations, prévisualisation 3D temps réel) avec service d'impression premium et livraison à domicile.",
+      "Studio d’identité numérique Pro-ID’Studio (CardStudio) : cartes de visite interactives, éditeur HTML5/CSS3/Canvas, micro-animations, prévisualisation 3D, impression premium et livraison.",
     stack: ["HTML5 Canvas", "CSS3 3D / Shaders", "JavaScript", "Vector Export / PDF Print", "E-Commerce"],
     status: "live",
     url: "https://cardstudio.atsetop.be"
