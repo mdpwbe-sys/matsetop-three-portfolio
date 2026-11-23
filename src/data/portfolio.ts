@@ -12,6 +12,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "OpenRoute Optimizer",
+    slug: "openroute-optimizer",
+    category: "Logistique & Applications mobiles",
+    description:
+      "Application auto-hébergeable d’optimisation de tournées jusqu’à 255 arrêts : import d’adresses ou CSV, calcul sur le réseau routier OpenStreetMap, carte interactive, suivi des livraisons et exports CSV/GPX. Une base commune pour le Web, la PWA et Android, avec projet iOS prêt pour Xcode.",
+    stack: ["React / TypeScript", "Capacitor / PWA", "MapLibre / OSM", "OSRM / VROOM", "FastAPI / SQLite"],
+    status: "live",
+    url: "https://deliver.atsetop.be"
+  },
+  {
     name: "4D Line Concept — Studio 3D",
     slug: "4d-line-concept",
     category: "Visualisation & Modélisation 3D",
